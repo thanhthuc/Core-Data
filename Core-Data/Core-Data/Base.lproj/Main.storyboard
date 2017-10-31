@@ -81,8 +81,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-6H-x2R">
-                                <rect key="frame" x="0.0" y="97" width="320" height="903"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-6H-x2R">
+                                <rect key="frame" x="0.0" y="64" width="320" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXF-ep-CMk" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="936"/>
@@ -167,6 +167,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rXF-ep-CMk" secondAttribute="trailing" id="3Nv-UG-tqK"/>
+                                    <constraint firstAttribute="bottom" secondItem="rXF-ep-CMk" secondAttribute="bottom" constant="-33" id="ItK-M1-auc"/>
                                     <constraint firstItem="rXF-ep-CMk" firstAttribute="leading" secondItem="bOT-6H-x2R" secondAttribute="leading" id="w7G-X2-v2f"/>
                                 </constraints>
                             </scrollView>
