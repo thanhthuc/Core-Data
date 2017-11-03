@@ -10,10 +10,26 @@ import UIKit
 
 class ShoutOutEditorViewController: UIViewController {
 
+    @IBOutlet weak var toWhoPickerView: UIPickerView!
+    
+    @IBOutlet weak var shoutCategoryPickerView: UIPickerView!
+    
+    @IBOutlet weak var messageTextView: UITextView!
+    
+    @IBOutlet weak var fromTextField: UITextField!
+    
+    var pickerViewTitle = ["DDDDDD", "SSSSSS", "GGGGGG", "JJJJJJJ", "KKKKKK", "LLLLLL"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyBoard))
+        view.addGestureRecognizer(tapGesture)
+        
+        initPickerView()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +37,48 @@ class ShoutOutEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func cancelPressed(_ sender: Any) {
+        print("Cancel Pressed")
+        dismiss(animated: true, completion: nil)
     }
-    */
+    
+    @IBAction func savePressed(_ sender: Any) {
+        print("Save Pressed")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func initPickerView() {
+        shoutCategoryPickerView.delegate = self
+        shoutCategoryPickerView.dataSource = self
+        toWhoPickerView.delegate = self
+        toWhoPickerView.dataSource = self
+    }
+    
+    @objc func dismisKeyBoard() {
+        messageTextView.endEditing(true)
+        fromTextField.endEditing(true)
+    }
+}
 
+
+extension ShoutOutEditorViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+    }
+}
+
+extension ShoutOutEditorViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 6
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerViewTitle[row]
+    }
+    
 }

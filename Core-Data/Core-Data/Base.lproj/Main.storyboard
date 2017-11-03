@@ -123,7 +123,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXF-ep-CMk" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="936"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="885"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shout category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ku-dZ-joU">
                                                 <rect key="frame" x="20" y="307" width="280" height="21"/>
@@ -185,7 +185,7 @@
                                             <constraint firstItem="UIZ-kZ-IgS" firstAttribute="leading" secondItem="rXF-ep-CMk" secondAttribute="leading" constant="20" id="Cpn-IX-4qZ"/>
                                             <constraint firstItem="UIZ-kZ-IgS" firstAttribute="top" secondItem="B9f-aq-HPL" secondAttribute="bottom" constant="40" id="IMl-G3-aIj"/>
                                             <constraint firstItem="G0k-hK-5k8" firstAttribute="top" secondItem="UIZ-kZ-IgS" secondAttribute="bottom" constant="5" id="MOy-Vl-dhV"/>
-                                            <constraint firstAttribute="bottom" secondItem="6JE-Wa-d7m" secondAttribute="bottom" constant="101" id="Nm5-kU-wiq"/>
+                                            <constraint firstAttribute="bottom" secondItem="6JE-Wa-d7m" secondAttribute="bottom" constant="50" id="Nm5-kU-wiq"/>
                                             <constraint firstItem="B9f-aq-HPL" firstAttribute="leading" secondItem="rXF-ep-CMk" secondAttribute="leading" id="OtO-Cg-dLF"/>
                                             <constraint firstItem="G0k-hK-5k8" firstAttribute="leading" secondItem="rXF-ep-CMk" secondAttribute="leading" id="Pn8-20-kW8"/>
                                             <constraint firstAttribute="trailing" secondItem="ceD-0k-HzD" secondAttribute="trailing" id="T0r-NQ-VAY"/>
@@ -204,8 +204,9 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rXF-ep-CMk" firstAttribute="top" secondItem="bOT-6H-x2R" secondAttribute="top" id="0YX-0f-CYg"/>
                                     <constraint firstAttribute="trailing" secondItem="rXF-ep-CMk" secondAttribute="trailing" id="3Nv-UG-tqK"/>
-                                    <constraint firstAttribute="bottom" secondItem="rXF-ep-CMk" secondAttribute="bottom" constant="-33" id="ItK-M1-auc"/>
+                                    <constraint firstAttribute="bottom" secondItem="rXF-ep-CMk" secondAttribute="bottom" id="shy-rF-cee"/>
                                     <constraint firstItem="rXF-ep-CMk" firstAttribute="leading" secondItem="bOT-6H-x2R" secondAttribute="leading" id="w7G-X2-v2f"/>
                                 </constraints>
                             </scrollView>
@@ -214,17 +215,30 @@
                         <constraints>
                             <constraint firstItem="bOT-6H-x2R" firstAttribute="top" secondItem="jgM-y6-914" secondAttribute="bottom" id="0Ia-1a-fYR"/>
                             <constraint firstItem="bOT-6H-x2R" firstAttribute="leading" secondItem="Npc-xa-GU7" secondAttribute="leading" id="OYT-Mu-PW3"/>
-                            <constraint firstItem="GcG-u1-vr6" firstAttribute="top" secondItem="bOT-6H-x2R" secondAttribute="bottom" id="f99-l7-jkF"/>
-                            <constraint firstItem="rXF-ep-CMk" firstAttribute="top" secondItem="jgM-y6-914" secondAttribute="bottom" id="slt-FX-uuv"/>
                             <constraint firstAttribute="trailing" secondItem="bOT-6H-x2R" secondAttribute="trailing" id="svN-QC-jsj"/>
+                            <constraint firstItem="GcG-u1-vr6" firstAttribute="top" secondItem="bOT-6H-x2R" secondAttribute="bottom" id="y4E-Co-V0a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit ShoutOut" id="i8Z-CG-Ydw">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xxk-qs-Pgw"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bHQ-WD-zOO"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xxk-qs-Pgw">
+                            <connections>
+                                <action selector="cancelPressed:" destination="V6w-Sd-Z4Q" id="az5-dW-n43"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="bHQ-WD-zOO">
+                            <connections>
+                                <action selector="savePressed:" destination="V6w-Sd-Z4Q" id="bT1-Q6-Ocq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1000"/>
+                    <connections>
+                        <outlet property="fromTextField" destination="6JE-Wa-d7m" id="raj-iu-9CB"/>
+                        <outlet property="messageTextView" destination="G0k-hK-5k8" id="dL1-3u-rFp"/>
+                        <outlet property="shoutCategoryPickerView" destination="B9f-aq-HPL" id="IYC-Z9-Aqh"/>
+                        <outlet property="toWhoPickerView" destination="ceD-0k-HzD" id="ofu-bO-kyr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4c3-TF-vxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
