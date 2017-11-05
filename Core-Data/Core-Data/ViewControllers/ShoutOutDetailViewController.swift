@@ -10,10 +10,12 @@ import UIKit
 
 class ShoutOutDetailViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +23,14 @@ class ShoutOutDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+	
+    @IBAction func didTapEditButton(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func didTapDeleteButton(_ sender: UIBarButtonItem) {
+        
+    }
     /*
     // MARK: - Navigation
 
