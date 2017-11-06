@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2DD86F1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */; };
+		4C2DD8711FAFD1FA00DA1324 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */; };
 		4C376E5C1FAB85C500164A9C /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */; };
 		4C376E5E1FAB861800164A9C /* ShoutOutDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C376E5D1FAB861800164A9C /* ShoutOutDetailViewController.swift */; };
 		4C376E601FAB863900164A9C /* ShoutOutEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C376E5F1FAB863900164A9C /* ShoutOutEditorViewController.swift */; };
 		4C3A851B1FA44F4700F37EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A851A1FA44F4700F37EA9 /* AppDelegate.swift */; };
 		4C3A85201FA44F4700F37EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A851E1FA44F4700F37EA9 /* Main.storyboard */; };
-		4C3A85231FA44F4700F37EA9 /* Core_Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C3A85211FA44F4700F37EA9 /* Core_Data.xcdatamodeld */; };
 		4C3A85251FA44F4700F37EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85241FA44F4700F37EA9 /* Assets.xcassets */; };
 		4C3A85281FA44F4700F37EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85261FA44F4700F37EA9 /* LaunchScreen.storyboard */; };
 		4CF4BB701FAB871900194D6E /* ShoutOutDraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */; };
@@ -20,13 +21,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoutOUT.xcdatamodel; sourceTree = "<group>"; };
+		4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
 		4C376E5D1FAB861800164A9C /* ShoutOutDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutDetailViewController.swift; sourceTree = "<group>"; };
 		4C376E5F1FAB863900164A9C /* ShoutOutEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutEditorViewController.swift; sourceTree = "<group>"; };
 		4C3A85171FA44F4700F37EA9 /* Core-Data.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Data.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C3A851A1FA44F4700F37EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C3A851F1FA44F4700F37EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4C3A85221FA44F4700F37EA9 /* Core_Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Core_Data.xcdatamodel; sourceTree = "<group>"; };
 		4C3A85241FA44F4700F37EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3A85271FA44F4700F37EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutDraftsViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C2DD86C1FAFD19300DA1324 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4C376E481FAB7F2000164A9C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +86,7 @@
 		4C376E5B1FAB85C500164A9C /* CoreData Stack */ = {
 			isa = PBXGroup;
 			children = (
+				4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */,
 			);
 			path = "CoreData Stack";
 			sourceTree = "<group>";
@@ -99,12 +110,12 @@
 		4C3A85191FA44F4700F37EA9 /* Core-Data */ = {
 			isa = PBXGroup;
 			children = (
+				4C2DD86C1FAFD19300DA1324 /* Model */,
 				4C376E5B1FAB85C500164A9C /* CoreData Stack */,
 				4C376E5A1FAB85C500164A9C /* View & Asset */,
 				4C376E581FAB85C500164A9C /* Views */,
 				4C376E481FAB7F2000164A9C /* ViewControllers */,
 				4C3A851A1FA44F4700F37EA9 /* AppDelegate.swift */,
-				4C3A85211FA44F4700F37EA9 /* Core_Data.xcdatamodeld */,
 			);
 			path = "Core-Data";
 			sourceTree = "<group>";
@@ -182,10 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C2DD8711FAFD1FA00DA1324 /* CoreDataStack.swift in Sources */,
+				4C2DD86F1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld in Sources */,
 				4C376E601FAB863900164A9C /* ShoutOutEditorViewController.swift in Sources */,
 				4C376E5E1FAB861800164A9C /* ShoutOutDetailViewController.swift in Sources */,
 				4C3A851B1FA44F4700F37EA9 /* AppDelegate.swift in Sources */,
-				4C3A85231FA44F4700F37EA9 /* Core_Data.xcdatamodeld in Sources */,
 				4C376E5C1FAB85C500164A9C /* DraftTableViewCell.swift in Sources */,
 				4CF4BB701FAB871900194D6E /* ShoutOutDraftsViewController.swift in Sources */,
 			);
@@ -374,13 +386,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4C3A85211FA44F4700F37EA9 /* Core_Data.xcdatamodeld */ = {
+		4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4C3A85221FA44F4700F37EA9 /* Core_Data.xcdatamodel */,
+				4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */,
 			);
-			currentVersion = 4C3A85221FA44F4700F37EA9 /* Core_Data.xcdatamodel */;
-			path = Core_Data.xcdatamodeld;
+			currentVersion = 4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */;
+			path = ShoutOUT.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
