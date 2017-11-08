@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-func createMainContext() {
+func createMainContext() -> NSManagedObjectContext {
     
     // create NSManagedObjectModel
     let urlModel = Bundle.main.path(forResource: "ShoutOUT", ofType: ".momd")
@@ -20,12 +20,18 @@ func createMainContext() {
     
     // create NSPersistentStoreCoordinator with an NSPersitentStore 
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
-    let databaseURL = Bundle.main.path(forResource: "ShoutOUT", ofType: "sqlite")
-    psc.addPersistentStore(ofType: "", configurationName: nil, at: URL(string: databaseURL), options: nil)
+    let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    
+    let databaseURL = documentPath?.appendingPathComponent("ShoutOUT.sqlite")
+    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: nil)
     
     // Create NSManageObjectContext
+    let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    context.persistentStoreCoordinator = psc
     
-    
+    return context
 }
+
+
 
 
