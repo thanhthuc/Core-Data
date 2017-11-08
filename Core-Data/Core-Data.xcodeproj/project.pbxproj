@@ -17,7 +17,7 @@
 		4C3A85251FA44F4700F37EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85241FA44F4700F37EA9 /* Assets.xcassets */; };
 		4C3A85281FA44F4700F37EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85261FA44F4700F37EA9 /* LaunchScreen.storyboard */; };
 		4CF4BB701FAB871900194D6E /* ShoutOutDraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */; };
-		6AA7A5DC1FA97A0B006D3B6F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6AA7A5DB1FA97A0B006D3B6F /* Info.plist */; };
+		6A71B0571FB18AE500E91866 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A71B0561FB18AE500E91866 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 		4C3A85241FA44F4700F37EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3A85271FA44F4700F37EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutDraftsViewController.swift; sourceTree = "<group>"; };
-		6AA7A5DB1FA97A0B006D3B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A71B0561FB18AE500E91866 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Core-Data/Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +75,10 @@
 		4C376E5A1FAB85C500164A9C /* View & Asset */ = {
 			isa = PBXGroup;
 			children = (
+				6A71B0561FB18AE500E91866 /* Info.plist */,
 				4C3A851E1FA44F4700F37EA9 /* Main.storyboard */,
 				4C3A85241FA44F4700F37EA9 /* Assets.xcassets */,
 				4C3A85261FA44F4700F37EA9 /* LaunchScreen.storyboard */,
-				6AA7A5DB1FA97A0B006D3B6F /* Info.plist */,
 			);
 			path = "View & Asset";
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AA7A5DC1FA97A0B006D3B6F /* Info.plist in Resources */,
 				4C3A85281FA44F4700F37EA9 /* LaunchScreen.storyboard in Resources */,
 				4C3A85251FA44F4700F37EA9 /* Assets.xcassets in Resources */,
+				6A71B0571FB18AE500E91866 /* Info.plist in Resources */,
 				4C3A85201FA44F4700F37EA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L3997MWN;
-				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/View & Asset/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Thuc.Core-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,7 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L3997MWN;
-				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/View & Asset/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Thuc.Core-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
