@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class ShoutOutDraftsViewController: UIViewController {
+class ShoutOutDraftsViewController: UIViewController, ShoutOutObjectManagedContextType {
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,11 +30,30 @@ class ShoutOutDraftsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: self)
+        
+        switch segue.identifier! {
+        case "detail":
+            let destVC = segue.destination as! ShoutOutDetailViewController
+            destVC.managedObjectContext = managedObjectContext
+        default:
+            let destVC = segue.destination as! UINavigationController
+            let shoutOutVC = destVC.viewControllers.first as! ShoutOutEditorViewController
+            shoutOutVC.managedObjectContext = managedObjectContext
+        }
+    }
+    
+    @IBAction func didTapAddNew(_ sender: Any) {
+        performSegue(withIdentifier: "addNew", sender: self)
+    }
+    
 }
 
 extension ShoutOutDraftsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: "detail", sender: self)
     }
 }
 

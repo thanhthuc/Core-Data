@@ -17,7 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let mainContext = createMainContext()
+        let shoutOutDraftVC = firstViewController()
+        shoutOutDraftVC.managedObjectContext = mainContext
         return true
+    }
+    
+    private func firstViewController() -> ShoutOutDraftsViewController {
+        
+        let firstNav = window?.rootViewController as! UINavigationController
+        let shoutOutDraftVC = firstNav.viewControllers[0] as! ShoutOutDraftsViewController
+        
+        return shoutOutDraftVC
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

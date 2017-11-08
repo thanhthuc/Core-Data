@@ -32,6 +32,10 @@ func createMainContext() -> NSManagedObjectContext {
     return context
 }
 
+protocol ShoutOutObjectManagedContextType {
+    var managedObjectContext: NSManagedObjectContext! { get }
+}
+
 
 
 

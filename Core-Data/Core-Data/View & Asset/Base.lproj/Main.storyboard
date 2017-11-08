@@ -68,7 +68,6 @@
                                             <outlet property="startAvatar" destination="QaS-Z6-8bx" id="21a-HX-bSf"/>
                                             <outlet property="subtitleLabel" destination="9XV-T0-K8H" id="Lt0-gP-tQq"/>
                                             <outlet property="titleLabel" destination="0vs-BX-Bfi" id="C7K-RZ-d7w"/>
-                                            <segue destination="UOR-b9-nOW" kind="show" id="PRk-50-NtR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -95,12 +94,14 @@
                     <navigationItem key="navigationItem" title="Shoutout Drafts" id="iTB-op-SEv">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Say-EB-bmN">
                             <connections>
-                                <segue destination="9Eg-Sr-1hk" kind="show" id="83Q-fe-6Qi"/>
+                                <action selector="didTapAddNew:" destination="BYZ-38-t0r" id="cM8-Ha-JQX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="7QL-Nu-nY1" id="eMX-oe-NEU"/>
+                        <segue destination="UOR-b9-nOW" kind="show" identifier="detail" id="yCf-8Y-a6b"/>
+                        <segue destination="9Eg-Sr-1hk" kind="show" identifier="addNew" id="fu5-tC-2TO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -367,6 +368,6 @@
         <image name="Star" width="123" height="118"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8sH-2V-DjN"/>
+        <segue reference="fu5-tC-2TO"/>
     </inferredMetricsTieBreakers>
 </document>
