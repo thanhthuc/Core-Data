@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2722DF1FB6F96200EC1B8C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2722DE1FB6F96200EC1B8C /* Info.plist */; };
 		4C2DD86F1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */; };
 		4C2DD8711FAFD1FA00DA1324 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */; };
 		4C376E5C1FAB85C500164A9C /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */; };
@@ -17,7 +18,6 @@
 		4C3A85251FA44F4700F37EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85241FA44F4700F37EA9 /* Assets.xcassets */; };
 		4C3A85281FA44F4700F37EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3A85261FA44F4700F37EA9 /* LaunchScreen.storyboard */; };
 		4CF4BB701FAB871900194D6E /* ShoutOutDraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */; };
-		6A71B0571FB18AE500E91866 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A71B0561FB18AE500E91866 /* Info.plist */; };
 		6ABAE1831FB2B19C0001D8D4 /* Core_DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABAE1821FB2B19C0001D8D4 /* Core_DataTests.swift */; };
 		6ABAE1911FB2B1B10001D8D4 /* Core_DataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ABAE1901FB2B1B10001D8D4 /* Core_DataUITests.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C2722DE1FB6F96200EC1B8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoutOUT.xcdatamodel; sourceTree = "<group>"; };
 		4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		4C3A85241FA44F4700F37EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3A85271FA44F4700F37EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutDraftsViewController.swift; sourceTree = "<group>"; };
-		6A71B0561FB18AE500E91866 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "Core-Data/Info.plist"; sourceTree = SOURCE_ROOT; };
 		6ABAE1801FB2B19C0001D8D4 /* Core-DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Core-DataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABAE1821FB2B19C0001D8D4 /* Core_DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core_DataTests.swift; sourceTree = "<group>"; };
 		6ABAE1841FB2B19C0001D8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		4C376E5A1FAB85C500164A9C /* View & Asset */ = {
 			isa = PBXGroup;
 			children = (
-				6A71B0561FB18AE500E91866 /* Info.plist */,
+				4C2722DE1FB6F96200EC1B8C /* Info.plist */,
 				4C3A851E1FA44F4700F37EA9 /* Main.storyboard */,
 				4C3A85241FA44F4700F37EA9 /* Assets.xcassets */,
 				4C3A85261FA44F4700F37EA9 /* LaunchScreen.storyboard */,
@@ -290,7 +290,7 @@
 			files = (
 				4C3A85281FA44F4700F37EA9 /* LaunchScreen.storyboard in Resources */,
 				4C3A85251FA44F4700F37EA9 /* Assets.xcassets in Resources */,
-				6A71B0571FB18AE500E91866 /* Info.plist in Resources */,
+				4C2722DF1FB6F96200EC1B8C /* Info.plist in Resources */,
 				4C3A85201FA44F4700F37EA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L3997MWN;
-				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/View & Asset/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Thuc.Core-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -505,7 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J8L3997MWN;
-				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Data/View & Asset/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Thuc.Core-Data";
 				PRODUCT_NAME = "$(TARGET_NAME)";
