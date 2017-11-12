@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C2722DF1FB6F96200EC1B8C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C2722DE1FB6F96200EC1B8C /* Info.plist */; };
+		4C2722E11FB89DA100EC1B8C /* Shoutout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2722E01FB89DA100EC1B8C /* Shoutout.swift */; };
+		4C2722E51FB8A0D000EC1B8C /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2722E41FB8A0D000EC1B8C /* Employee.swift */; };
 		4C2DD86F1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */; };
 		4C2DD8711FAFD1FA00DA1324 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */; };
 		4C376E5C1FAB85C500164A9C /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		4C2722DE1FB6F96200EC1B8C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C2722E01FB89DA100EC1B8C /* Shoutout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoutout.swift; sourceTree = "<group>"; };
+		4C2722E41FB8A0D000EC1B8C /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoutOUT.xcdatamodel; sourceTree = "<group>"; };
 		4C2DD8701FAFD1FA00DA1324 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		4C376E591FAB85C500164A9C /* DraftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */,
+				4C2722E01FB89DA100EC1B8C /* Shoutout.swift */,
+				4C2722E41FB8A0D000EC1B8C /* Employee.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,9 +323,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C2DD8711FAFD1FA00DA1324 /* CoreDataStack.swift in Sources */,
+				4C2722E51FB8A0D000EC1B8C /* Employee.swift in Sources */,
 				4C2DD86F1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld in Sources */,
 				4C376E601FAB863900164A9C /* ShoutOutEditorViewController.swift in Sources */,
 				4C376E5E1FAB861800164A9C /* ShoutOutDetailViewController.swift in Sources */,
+				4C2722E11FB89DA100EC1B8C /* Shoutout.swift in Sources */,
 				4C3A851B1FA44F4700F37EA9 /* AppDelegate.swift in Sources */,
 				4C376E5C1FAB85C500164A9C /* DraftTableViewCell.swift in Sources */,
 				4CF4BB701FAB871900194D6E /* ShoutOutDraftsViewController.swift in Sources */,
