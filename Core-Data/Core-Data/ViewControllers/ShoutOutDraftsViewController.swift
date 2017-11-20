@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ShoutOutDraftsViewController: UIViewController, ShoutOutObjectManagedContextType {
+class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDependenceType {
     
     var managedObjectContext: NSManagedObjectContext!
     

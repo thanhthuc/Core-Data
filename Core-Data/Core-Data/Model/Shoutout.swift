@@ -15,4 +15,8 @@ class ShoutOut: NSManagedObject {
     @NSManaged var shoutCategory: String
     @NSManaged var sentDate: Date?
     @NSManaged var toEmployee: Employee
+    
+    static var entityName: String {
+        return "ShoutOut"
+    }
 }
