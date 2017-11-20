@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainContext = createMainContext()
         let shoutOutDraftVC = firstViewController()
         shoutOutDraftVC.managedObjectContext = mainContext
+        
+        let dataService = DataService(managedObjectContext: mainContext)
+        dataService.seedEmployees()
+        
         return true
     }
     

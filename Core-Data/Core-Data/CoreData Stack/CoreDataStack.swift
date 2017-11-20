@@ -23,7 +23,19 @@ func createMainContext() -> NSManagedObjectContext {
     let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
     
     let databaseURL = documentPath?.appendingPathComponent("ShoutOUT.sqlite")
-    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: nil)
+    
+    // For migrate data
+    
+    //try! FileManager.default.removeItem(at: databaseURL!)
+    
+    do {
+        try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: nil)
+        
+//        try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: [NSReadOnlyPersistentStoreOption: true, NSSQLitePragmasOption: "DELETE"])
+    } catch {
+        print("something wrong: \(error)")
+    }
+    
     
     // Create NSManageObjectContext
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)

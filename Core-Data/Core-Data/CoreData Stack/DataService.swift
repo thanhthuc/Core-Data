@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class DataService: ManageObjectContextDependenceType {
+struct DataService: ManageObjectContextDependenceType {
     
     var managedObjectContext: NSManagedObjectContext!
     
@@ -50,9 +50,8 @@ class DataService: ManageObjectContextDependenceType {
             try managedObjectContext.save()
         } catch {
             print("Something wrong with your data, let see reason")
-            print(error.localizedDescription)
+            print(error)
             managedObjectContext.rollback()
         }
     }
-    
 }

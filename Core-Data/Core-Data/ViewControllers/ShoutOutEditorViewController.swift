@@ -21,18 +21,27 @@ class ShoutOutEditorViewController: UIViewController, ManageObjectContextDepende
     
     @IBOutlet weak var fromTextField: UITextField!
     
-    var pickerViewTitle = ["DDDDDD", "SSSSSS", "GGGGGG", "JJJJJJJ", "KKKKKK", "LLLLLL"]
+    var shoutCategorys = [
+        "Great Job!", 
+        "Awesome Work!", 
+        "Well Done!", 
+        "Amazing Effort!"
+    ]
+    
+    var employee:[Employee] = []
+    
+    var shoutOutMO: ShoutOut!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismisKeyBoard))
         view.addGestureRecognizer(tapGesture)
         
-        initPickerView()
+        shoutOutMO = NSEntityDescription.insertNewObject(forEntityName: ShoutOut.entityName, into: managedObjectContext) as! ShoutOut
         
+        initPickerView()
+        fetchEmployee()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,11 +51,26 @@ class ShoutOutEditorViewController: UIViewController, ManageObjectContextDepende
     
     @IBAction func cancelPressed(_ sender: Any) {
         print("Cancel Pressed")
+        managedObjectContext.rollback()
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func savePressed(_ sender: Any) {
-        print("Save Pressed")
+        let toEmPloyeeIndex = toWhoPickerView.selectedRow(inComponent: 0)
+        let toEmployee = employee[toEmPloyeeIndex]
+        let shoutOutCategoryIndex = shoutCategoryPickerView.selectedRow(inComponent: 0)
+        let shoutCategory = shoutCategorys[shoutOutCategoryIndex]
+        
+        shoutOutMO.toEmployee = toEmployee
+        shoutOutMO.shoutCategory = shoutCategory
+        shoutOutMO.from = fromTextField.text
+        shoutOutMO.message = messageTextView.text
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error)
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -55,6 +79,20 @@ class ShoutOutEditorViewController: UIViewController, ManageObjectContextDepende
         shoutCategoryPickerView.dataSource = self
         toWhoPickerView.delegate = self
         toWhoPickerView.dataSource = self
+    }
+    
+    func fetchEmployee() {
+        let fetchEmployeeRequest = NSFetchRequest<Employee>(entityName: Employee.entityName)
+        
+        let employeeSort = NSSortDescriptor(key: #keyPath(Employee.firstName), ascending: true)
+        let secondSort = NSSortDescriptor(key: #keyPath(Employee.lastName), ascending: true)
+        fetchEmployeeRequest.sortDescriptors = [employeeSort,secondSort]
+        do {
+            employee = try managedObjectContext.fetch(fetchEmployeeRequest)
+        } catch {
+            employee = []
+            print("Something went wrong: \(error)")
+        }
     }
     
     @objc func dismisKeyBoard() {
@@ -77,11 +115,20 @@ extension ShoutOutEditorViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 6
+        if pickerView == toWhoPickerView {
+            return employee.count
+        } else {
+            return shoutCategorys.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerViewTitle[row]
+        if pickerView == toWhoPickerView {
+            let name = "\(employee[row].firstName) \(employee[row].lastName)"
+            return name
+        } else {
+            return shoutCategorys[row]
+        }
     }
     
 }

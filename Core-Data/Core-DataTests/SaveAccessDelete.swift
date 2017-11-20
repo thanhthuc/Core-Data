@@ -89,7 +89,7 @@ class SaveAccessDelete: XCTestCase {
         }
         
         
-        let shoutOutBEGINWITHPredicate = NSPredicate(format: "%K BEGINSWITH %@", #keyPath(ShoutOut.toEmployee.firstName), "Tran")
+        let shoutOutBEGINWITHPredicate = NSPredicate(format: "%K BEGINSWITH %@", #keyPath(ShoutOut.message), "You")
         shoutOutFetchRequest.predicate = shoutOutBEGINWITHPredicate
         do {
             let shoutOuts = try managedObjectContext.fetch(shoutOutFetchRequest)
@@ -133,6 +133,12 @@ class SaveAccessDelete: XCTestCase {
             shoutOut4.shoutCategory = "Great Job!"
             shoutOut4.message = "Hey guy, great job on that project, svsvsdvsd"
             shoutOut4.toEmployee = employees[4]
+            
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print("Something wrong: \(error)")
+            }
             
         } catch {
             print(error.localizedDescription)

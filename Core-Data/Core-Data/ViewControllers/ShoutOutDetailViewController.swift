@@ -40,8 +40,9 @@ class ShoutOutDetailViewController: UIViewController, ManageObjectContextDepende
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        
+        let dest = segue.destination as! UINavigationController
+        let shoutOutEditorVC = dest.viewControllers.first as! ShoutOutEditorViewController
+        shoutOutEditorVC.managedObjectContext = managedObjectContext
     }
     
 
