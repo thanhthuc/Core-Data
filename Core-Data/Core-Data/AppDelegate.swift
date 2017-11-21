@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dataService = DataService(managedObjectContext: mainContext)
         dataService.seedEmployees()
         
+        print(URL.documentPath)
+        
         return true
     }
     

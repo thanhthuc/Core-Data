@@ -20,28 +20,37 @@ func createMainContext() -> NSManagedObjectContext {
     
     // create NSPersistentStoreCoordinator with an NSPersitentStore 
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
-    let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-    
-    let databaseURL = documentPath?.appendingPathComponent("ShoutOUT.sqlite")
-    
-    // For migrate data
-    
-    //try! FileManager.default.removeItem(at: databaseURL!)
-    
-    do {
-        try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: nil)
+    let databaseURL = URL.documentPath.appendingPathComponent("ShoutOUT.sqlite")
+    // For migrate data, 
+    // To use this Behavior, we must sure it is DELETE JOURNAL MODE
+    // Later, set up it to WAL
+    // try! FileManager.default.removeItem(at: databaseURL)
         
-//        try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: databaseURL!, options: [NSReadOnlyPersistentStoreOption: true, NSSQLitePragmasOption: "DELETE"])
+    do {
+        //let journalModeDict = ["journal_mode": "DELETE"]
+        //let options = [NSSQLitePragmasOption: journalModeDict]
+        try psc.addPersistentStore(ofType: NSSQLiteStoreType, 
+                                   configurationName: nil, 
+                                   at: databaseURL, 
+                                   options: nil)
     } catch {
         print("something wrong: \(error)")
     }
-    
     
     // Create NSManageObjectContext
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = psc
     
     return context
+}
+
+extension URL {
+    static let documentPath = try! FileManager
+        .default
+        .url(for: .documentDirectory, 
+             in: .userDomainMask, 
+             appropriateFor: nil, 
+             create: true)
 }
 
 protocol ManageObjectContextDependenceType {

@@ -87,12 +87,14 @@ class ShoutOutEditorViewController: UIViewController, ManageObjectContextDepende
         let employeeSort = NSSortDescriptor(key: #keyPath(Employee.firstName), ascending: true)
         let secondSort = NSSortDescriptor(key: #keyPath(Employee.lastName), ascending: true)
         fetchEmployeeRequest.sortDescriptors = [employeeSort,secondSort]
+        
         do {
             employee = try managedObjectContext.fetch(fetchEmployeeRequest)
         } catch {
             employee = []
-            print("Something went wrong: \(error)")
+            print("Something went wrong: \(error.localizedDescription)")
         }
+        
     }
     
     @objc func dismisKeyBoard() {

@@ -12,7 +12,7 @@ import CoreData
 class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDependenceType {
     
     var managedObjectContext: NSManagedObjectContext!
-    
+    var shoutOuts: [ShoutOut] = []
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -21,23 +21,44 @@ class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDepende
         initTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let request = NSFetchRequest<ShoutOut>(entityName: ShoutOut.entityName)
+        
+        do {
+            shoutOuts = try managedObjectContext.fetch(request)
+        } catch {
+            print(error)
+        }
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func initTableView() {
-        tableView.delegate = self
+        //tableView.delegate = self
         tableView.dataSource = self
+        let request = NSFetchRequest<ShoutOut>(entityName: ShoutOut.entityName)
+        
+        do {
+            shoutOuts = try managedObjectContext.fetch(request)
+        } catch {
+            print(error)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: self)
-        
+        super.prepare(for: segue, sender: sender)        
         switch segue.identifier! {
         case "detail":
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             let destVC = segue.destination as! ShoutOutDetailViewController
             destVC.managedObjectContext = managedObjectContext
+            destVC.shoutOut = shoutOuts[indexPath!.row]
         default:
             let destVC = segue.destination as! UINavigationController
             let shoutOutVC = destVC.viewControllers.first as! ShoutOutEditorViewController
@@ -48,13 +69,6 @@ class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDepende
     @IBAction func didTapAddNew(_ sender: Any) {
         performSegue(withIdentifier: "addNew", sender: self)
     }
-    
-}
-
-extension ShoutOutDraftsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "detail", sender: self)
-    }
 }
 
 extension ShoutOutDraftsViewController: UITableViewDataSource {
@@ -63,13 +77,13 @@ extension ShoutOutDraftsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return shoutOuts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DraftTableViewCell
-        cell.titleLabel.text = "first title"
-        cell.subtitleLabel.text = "first subtitle"
+        cell.titleLabel.text = shoutOuts[indexPath.row].shoutCategory
+        cell.subtitleLabel.text = shoutOuts[indexPath.row].toEmployee.lastName
         return cell
     }
 }

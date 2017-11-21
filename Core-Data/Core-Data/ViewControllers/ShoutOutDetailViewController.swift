@@ -12,6 +12,7 @@ import CoreData
 class ShoutOutDetailViewController: UIViewController, ManageObjectContextDependenceType {
 
     var managedObjectContext: NSManagedObjectContext!
+    var shoutOut: ShoutOut?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,14 @@ class ShoutOutDetailViewController: UIViewController, ManageObjectContextDepende
     }
     
     @IBAction func didTapDeleteButton(_ sender: UIBarButtonItem) {
+        managedObjectContext.delete(shoutOut!)
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error)
+        }
         
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Navigation
