@@ -321,6 +321,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryTextField" destination="4MI-mU-RFX" id="Ja5-yN-S9S"/>
+                        <outlet property="messageTextview" destination="ybJ-Yg-Elk" id="vfY-jw-gMJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFy-zK-Vwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -368,6 +372,6 @@
         <image name="Star" width="123" height="118"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fu5-tC-2TO"/>
+        <segue reference="8sH-2V-DjN"/>
     </inferredMetricsTieBreakers>
 </document>

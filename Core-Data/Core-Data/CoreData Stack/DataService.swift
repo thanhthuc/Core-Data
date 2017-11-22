@@ -25,27 +25,22 @@ struct DataService: ManageObjectContextDependenceType {
                 employee1.lastName = "Thanh Thuc"
                 
                 let employee2 = NSEntityDescription.insertNewObject(forEntityName: Employee.entityName, into: managedObjectContext) as! Employee
-                
                 employee2.firstName = "Tran"
                 employee2.lastName = "Duy Tien"
                 
                 let employee3 = NSEntityDescription.insertNewObject(forEntityName: Employee.entityName, into: managedObjectContext) as! Employee
-                
                 employee3.firstName = "Ngo"
                 employee3.lastName = "Hoang Phuong"
                 
                 let employee4 = NSEntityDescription.insertNewObject(forEntityName: Employee.entityName, into: managedObjectContext) as! Employee
-                
                 employee4.firstName = "Nguyen"
                 employee4.lastName = "Van Bao Chinh"
                 
                 let employee5 = NSEntityDescription.insertNewObject(forEntityName: Employee.entityName, into: managedObjectContext) as! Employee
-                
                 employee5.firstName = "Nguyen"
                 employee5.lastName = "Thi Nhu Quynh"
                 
                 let employee6 = NSEntityDescription.insertNewObject(forEntityName: Employee.entityName, into: managedObjectContext) as! Employee
-                
                 employee6.firstName = "Tran"
                 employee6.lastName = "Van Giang"
                                 

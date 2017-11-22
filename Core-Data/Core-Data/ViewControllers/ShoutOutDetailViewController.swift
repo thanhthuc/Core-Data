@@ -14,10 +14,16 @@ class ShoutOutDetailViewController: UIViewController, ManageObjectContextDepende
     var managedObjectContext: NSManagedObjectContext!
     var shoutOut: ShoutOut?
     
+    @IBOutlet weak var categoryTextField: UILabel!
+    
+    @IBOutlet weak var messageTextview: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        categoryTextField.text = shoutOut!.shoutCategory
+        messageTextview.text = shoutOut!.message
         
     }
 
@@ -25,21 +31,28 @@ class ShoutOutDetailViewController: UIViewController, ManageObjectContextDepende
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 	
     @IBAction func didTapEditButton(_ sender: UIBarButtonItem) {
         
     }
     
     @IBAction func didTapDeleteButton(_ sender: UIBarButtonItem) {
-        managedObjectContext.delete(shoutOut!)
-        do {
-            try managedObjectContext.save()
-        } catch {
-            print(error)
-        }
         
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "", message: "Do you want to delete", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
+            self.managedObjectContext.delete(self.shoutOut!)
+            do {
+                try self.managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+            self.navigationController?.popViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
