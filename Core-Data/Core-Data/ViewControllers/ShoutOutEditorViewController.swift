@@ -65,6 +65,7 @@ class ShoutOutEditorViewController: UIViewController, ManageObjectContextDepende
         shoutOutMO.shoutCategory = shoutCategory
         shoutOutMO.from = fromTextField.text
         shoutOutMO.message = messageTextView.text
+        shoutOutMO.sentOn = Date()
         
         do {
             try managedObjectContext.save()

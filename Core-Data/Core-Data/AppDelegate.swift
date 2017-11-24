@@ -17,12 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let mainContext = createMainContext()
-        let shoutOutDraftVC = firstViewController()
-        shoutOutDraftVC.managedObjectContext = mainContext
-        
-        let dataService = DataService(managedObjectContext: mainContext)
-        dataService.seedEmployees()
+//        let mainContext = createMainContext()
+        createMainContextWithContainer { (container) in
+             
+            let storyboardWithRootVC = self.window?.rootViewController?.storyboard
+            let rootViewController = storyboardWithRootVC?.instantiateViewController(withIdentifier: "RootViewController")
+            
+            self.window?.rootViewController = rootViewController
+            
+            let mainContext = container!.viewContext
+            let shoutOutDraftVC = self.firstViewController()
+            shoutOutDraftVC.managedObjectContext = mainContext
+            
+            let dataService = DataService(managedObjectContext: mainContext)
+            dataService.seedEmployees()
+        }
         
         print(URL.documentPath)
         

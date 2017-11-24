@@ -61,6 +61,7 @@
 		4C3A85241FA44F4700F37EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C3A85271FA44F4700F37EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CF4BB6F1FAB871900194D6E /* ShoutOutDraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoutOutDraftsViewController.swift; sourceTree = "<group>"; };
+		6A9004901FC7F83300E01FAB /* ShoutOUT 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ShoutOUT 2.xcdatamodel"; sourceTree = "<group>"; };
 		6ABAE1801FB2B19C0001D8D4 /* Core-DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Core-DataTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ABAE1841FB2B19C0001D8D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6ABAE18E1FB2B1B10001D8D4 /* Core-DataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Core-DataUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -637,9 +638,10 @@
 		4C2DD86D1FAFD1E000DA1324 /* ShoutOUT.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				6A9004901FC7F83300E01FAB /* ShoutOUT 2.xcdatamodel */,
 				4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */,
 			);
-			currentVersion = 4C2DD86E1FAFD1E000DA1324 /* ShoutOUT.xcdatamodel */;
+			currentVersion = 6A9004901FC7F83300E01FAB /* ShoutOUT 2.xcdatamodel */;
 			path = ShoutOUT.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

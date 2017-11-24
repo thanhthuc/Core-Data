@@ -35,6 +35,9 @@ class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDepende
     
     func configureFetchedResultController() {
         let shoutOutFetchRequest = NSFetchRequest<ShoutOut>(entityName: ShoutOut.entityName)
+        
+        let departmentSortDescriptor = NSSortDescriptor(key: #keyPath(ShoutOut.toEmployee.department), ascending: true)
+        
         let lastNameSortDescriptor = NSSortDescriptor(
             key: #keyPath(ShoutOut.toEmployee.lastName), 
             ascending: true)
@@ -42,10 +45,15 @@ class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDepende
             key: #keyPath(ShoutOut.toEmployee.firstName), 
             ascending: true)
         shoutOutFetchRequest.sortDescriptors = [
+            departmentSortDescriptor,
             lastNameSortDescriptor, 
             firstNameSortDescriptor
         ]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: shoutOutFetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = 
+            NSFetchedResultsController(fetchRequest: shoutOutFetchRequest,
+                                       managedObjectContext: managedObjectContext,
+                                       sectionNameKeyPath: #keyPath(ShoutOut.toEmployee.department), 
+                                       cacheName: nil)
         fetchedResultsController.delegate = self
     }
     
@@ -81,7 +89,17 @@ class ShoutOutDraftsViewController: UIViewController, ManageObjectContextDepende
 
 extension ShoutOutDraftsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let sections = fetchedResultsController.sections {
+            return sections.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections {
+            return sections[section].name
+        }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,6 +114,7 @@ extension ShoutOutDraftsViewController: UITableViewDataSource {
         let shoutOut = fetchedResultsController.object(at: indexPath)
         cell.titleLabel.text = shoutOut.shoutCategory
         cell.subtitleLabel.text = shoutOut.toEmployee.lastName
+        print(shoutOut.toEmployee.department)
         return cell
     }
 }
@@ -107,6 +126,13 @@ extension ShoutOutDraftsViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
+    }
+    
+    // This method for custom index of section
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    sectionIndexTitleForSectionName sectionName: String) -> String? {
+        
+        return sectionName + "Nguyen Thanh Thuc"
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, 
@@ -138,6 +164,22 @@ extension ShoutOutDraftsViewController: NSFetchedResultsControllerDelegate {
                 cell.titleLabel.text = shoutOut.shoutCategory
                 cell.subtitleLabel.text = shoutOut.toEmployee.lastName
             }
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, 
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int, 
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .delete:
+            self.tableView.deleteSections(IndexSet.init(integer: sectionIndex) , with: .fade)
+        case .insert:
+            self.tableView.insertSections(IndexSet.init(integer: sectionIndex) , with: .fade)
+        case .move:
+            print("move")
+        case .update:
+            print("update")
         }
     }
     

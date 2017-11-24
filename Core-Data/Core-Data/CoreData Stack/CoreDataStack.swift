@@ -17,31 +17,42 @@ func createMainContext() -> NSManagedObjectContext {
         else {
         fatalError("Can not find object model")
     }
-    
     // create NSPersistentStoreCoordinator with an NSPersitentStore 
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
     let databaseURL = URL.documentPath.appendingPathComponent("ShoutOUT.sqlite")
-    // For migrate data, 
-    // To use this Behavior, we must sure it is DELETE JOURNAL MODE
-    // Later, set up it to WAL
-    // try! FileManager.default.removeItem(at: databaseURL)
         
     do {
-        //let journalModeDict = ["journal_mode": "DELETE"]
-        //let options = [NSSQLitePragmasOption: journalModeDict]
+        let pscOptions = [
+            NSMigratePersistentStoresAutomaticallyOption: true,
+            NSInferMappingModelAutomaticallyOption: true
+        ]
         try psc.addPersistentStore(ofType: NSSQLiteStoreType, 
                                    configurationName: nil, 
                                    at: databaseURL, 
-                                   options: nil)
+                                   options: pscOptions)
     } catch {
         print("something wrong: \(error)")
     }
-    
     // Create NSManageObjectContext
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = psc
-    
     return context
+}
+
+func createMainContextWithContainer(completion: @escaping (NSPersistentContainer?) -> Void) {
+    
+    
+    let container = NSPersistentContainer(name: "ShoutOUT")
+    
+    let storeURL = URL.documentPath.appendingPathComponent("ShoutOUT.sqlite")
+    let persistentDescriptions = NSPersistentStoreDescription(url: storeURL)
+    container.persistentStoreDescriptions = [persistentDescriptions]
+    
+    container.loadPersistentStores { (persistanceStoreDescription, error) in
+        DispatchQueue.main.async {
+            completion(container)
+        }
+    }
 }
 
 extension URL {
