@@ -15,12 +15,12 @@ func createMainContext() -> NSManagedObjectContext {
     let urlModel = Bundle.main.path(forResource: "ShoutOUT", ofType: ".momd")
     guard let model = NSManagedObjectModel(contentsOf: URL(string: urlModel!)!) 
         else {
-        fatalError("Can not find object model")
+            fatalError("Can not find object model")
     }
     // create NSPersistentStoreCoordinator with an NSPersitentStore 
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
     let databaseURL = URL.documentPath.appendingPathComponent("ShoutOUT.sqlite")
-        
+    
     do {
         let pscOptions = [
             NSMigratePersistentStoresAutomaticallyOption: true,

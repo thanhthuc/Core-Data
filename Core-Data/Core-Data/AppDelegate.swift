@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let mainContext = createMainContext()
-        createMainContextWithContainer { (container) in
+        // let mainContext = createMainContext()
+        
+        /*createMainContextWithContainer { (container) in
              
             let storyboardWithRootVC = self.window?.rootViewController?.storyboard
             let rootViewController = storyboardWithRootVC?.instantiateViewController(withIdentifier: "RootViewController")
@@ -31,7 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let dataService = DataService(managedObjectContext: mainContext)
             dataService.seedEmployees()
-        }
+        }*/
+        
+        let shoutOutDraftVC = self.firstViewController()
+        shoutOutDraftVC.managedObjectContext = persistentContainer.viewContext
+        
+        let dataService = DataService(managedObjectContext: persistentContainer.viewContext)
+        dataService.seedEmployees()
         
         print(URL.documentPath)
         
@@ -79,8 +86,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "Core_Data")
+        let container = NSPersistentContainer(name: "ShoutOUT")
+        
+//        let storeURL = URL.documentPath.appendingPathComponent("ShoutOUT.sqlite")
+//        let persistentDescriptions = NSPersistentStoreDescription(url: storeURL)
+//        container.persistentStoreDescriptions = [persistentDescriptions]
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            
+            print(storeDescription)
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
