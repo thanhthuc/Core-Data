@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = rootViewController
             
             let mainContext = container!.viewContext
-            let shoutOutDraftVC = self.firstViewController() ///////
+            let shoutOutDraftVC = self.firstViewController() ///////    lllllll
             shoutOutDraftVC.managedObjectContext = mainContext
             
             let dataService = DataService(managedObjectContext: mainContext)
